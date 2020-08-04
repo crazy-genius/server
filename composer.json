@@ -1,0 +1,11 @@
+{
+    "name": "crazy_genius/sockets",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Minkin Aleksey",
+            "email": "crazy_genius@mail.ru"
+        }
+    ],
+    "require": {}
+}
