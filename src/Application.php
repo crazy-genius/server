@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\HTTP\Response;
+
 /**
  * Class Application
  * @package App
@@ -34,7 +36,9 @@ class Application
         socket_listen($socket);
 
         while ($connect = socket_accept($socket)) {
-            socket_write($connect, "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: close\r\n\r\nПривет");
+            $response = new Response('Привет');
+            $message = $response->toString();
+            socket_write($connect, $message, strlen($message));
             socket_close($connect);
         }
 
